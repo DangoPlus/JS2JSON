@@ -3,7 +3,7 @@ var path = require('path');
 
 //解析需要遍历的文件夹，我这以E盘根目录为例
 var filePath = path.resolve('./ja');
-
+fs.mkdirSync('./output', 0755);
 //调用文件遍历方法
 fileDisplay(filePath);
 
@@ -34,7 +34,7 @@ function fileDisplay(filePath){
                             let output_jp = JSON.stringify(input_jp,null,"\t");
                             let filebase = path.basename(filename,'.js');
                             console.log(filebase);
-                            let outfile = [filebase, '.json'].join('');
+                            let outfile = ['./output/',filebase, '.json'].join('');
                             fs.writeFile(outfile, output_jp);
                         }
                         if(isDir){
