@@ -35,7 +35,7 @@ function fileDisplay(filePath){
                             let filebase = path.basename(filename,'.js');
                             console.log(filebase);
                             let outfile = ['./output/',filebase, '.json'].join('');
-                            fs.writeFile(outfile, output_jp);
+                            fs.writeFileSync(outfile, output_jp);
                         }
                         if(isDir){
                             fileDisplay(filedir);//递归，如果是文件夹，就继续遍历该文件夹下面的文件
